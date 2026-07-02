@@ -54,6 +54,15 @@ export default function TopNav() {
       </nav>
 
       <div className="ml-auto flex items-center gap-2">
+        <a
+          href="https://www.abhisheknagaraja.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium text-white/40 hover:text-white/70 border border-white/8 hover:border-white/20 transition-all"
+          style={{ fontFamily: "var(--font-montserrat)" }}
+        >
+          Classic
+        </a>
         <CommandPalette />
         <Link
           href="/profile"

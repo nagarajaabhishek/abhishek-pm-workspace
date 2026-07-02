@@ -1,8 +1,5 @@
-import type { Metadata } from "next";
-import ClassicView from "@/components/classic/ClassicView";
-
-export const metadata: Metadata = { title: "Abhishek Nagaraja — Portfolio" };
+import { redirect } from "next/navigation";
 
 export default function ClassicPage() {
-  return <ClassicView />;
+  redirect("https://www.abhisheknagaraja.com");
 }

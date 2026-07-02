@@ -265,7 +265,7 @@ export default function WelcomeModal() {
 
                       {/* LinkedIn CTA */}
                       <a
-                        href="https://linkedin.com/in/nagarajaabhishek"
+                        href="https://www.linkedin.com/in/abhisheknagaraja"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold text-white/60 hover:text-white transition-colors mb-3"
