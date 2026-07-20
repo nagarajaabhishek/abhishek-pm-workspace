@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { MapPin, Mail, Calendar, ExternalLink } from "lucide-react";
-import { personalInfo, impactMetrics, skills, sectors, hobbies } from "@/data/portfolioData";
+import { MapPin, Mail, Calendar, ExternalLink, GitBranch } from "lucide-react";
+import { personalInfo, impactMetrics, skills, sectors, hobbies, communities } from "@/data/portfolioData";
 import DocsPageHeader from "@/components/docs/DocsPageHeader";
 import { getDocPage } from "@/data/docsData";
 
@@ -20,12 +20,18 @@ export default function AboutMeDoc() {
           <h2 className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-montserrat)" }}>{personalInfo.name}</h2>
           <p className="text-sm text-brand font-medium">{personalInfo.tagline}</p>
           <p className="text-sm text-white/50 mt-2 leading-relaxed">{personalInfo.description}</p>
-          <div className="flex items-center gap-2 mt-3 flex-wrap">
+          <div className="flex items-center gap-3 mt-3 flex-wrap">
             {personalInfo.openToWork?.map((loc) => (
               <span key={loc} className="flex items-center gap-1 text-[10px] bg-green-500/10 border border-green-500/20 text-green-400 px-2 py-0.5 rounded-full">
                 <MapPin className="w-2.5 h-2.5" /> Open to work · {loc}
               </span>
             ))}
+            {personalInfo.socialLinks.github && (
+              <a href={personalInfo.socialLinks.github} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-white/40 hover:text-brand transition-colors">
+                <GitBranch className="w-3.5 h-3.5" /> GitHub
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -108,12 +114,73 @@ export default function AboutMeDoc() {
       </section>
 
       <section className="mb-8">
+        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Communities Built</h2>
+        <div className="grid sm:grid-cols-2 gap-2">
+          {communities.map((c) => (
+            <div key={c.id} className="flex items-center justify-between rounded-lg px-3 py-2 bg-white/3 border border-white/6">
+              <p className="text-sm text-white/70">{c.name}</p>
+              <span className="text-[10px] bg-green-500/10 border border-green-500/20 text-green-400 px-1.5 py-0.5 rounded-full">
+                {c.status}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-8">
         <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Beyond Work</h2>
         <div className="grid sm:grid-cols-2 gap-2">
           {hobbies.map((h) => (
             <div key={h.name} className="rounded-lg p-3 bg-white/3 border border-white/6">
               <p className="text-sm font-medium text-white">{h.name}</p>
               <p className="text-xs text-white/40 mt-0.5">{h.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Built With</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="rounded-xl p-3 border border-white/7 bg-white/3 flex flex-col gap-2">
+            <div className="w-8 h-8 rounded-xl overflow-hidden ring-1 ring-brand/20 shrink-0">
+              <div className="w-full h-full bg-gradient-to-br from-brand/30 to-purple-500/30 flex items-center justify-center text-sm">🤖</div>
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-white" style={{ fontFamily: "var(--font-montserrat)" }}>Claude</p>
+              <p className="text-[10px] text-white/40 mt-0.5">AI Collaborator</p>
+              <span className="inline-block mt-1.5 text-[9px] px-1.5 py-0.5 rounded-md bg-brand/10 border border-brand/15 text-brand/80 font-medium">Anthropic</span>
+            </div>
+          </div>
+
+          <div className="rounded-xl p-3 border border-white/7 bg-white/3 flex flex-col gap-2">
+            <div className="w-8 h-8 rounded-xl overflow-hidden ring-1 ring-purple-500/20 shrink-0">
+              <div className="w-full h-full bg-gradient-to-br from-purple-500/30 to-blue-500/30 flex items-center justify-center text-sm">🚀</div>
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-white" style={{ fontFamily: "var(--font-montserrat)" }}>Antigravity</p>
+              <p className="text-[10px] text-white/40 mt-0.5">PM Accelerator</p>
+              <span className="inline-block mt-1.5 text-[9px] px-1.5 py-0.5 rounded-md bg-purple-500/10 border border-purple-500/15 text-purple-300/80 font-medium">Mentor</span>
+            </div>
+          </div>
+
+          {[
+            { name: "Next.js 15", role: "Frontend Framework", emoji: "▲" },
+            { name: "Python", role: "Backend & Agents", emoji: "🐍" },
+            { name: "LangGraph", role: "Agent Orchestration", emoji: "🔗" },
+            { name: "TypeScript", role: "Type-safe Development", emoji: "TS" },
+            { name: "Supabase", role: "Database & Auth", emoji: "⚡" },
+            { name: "React Native", role: "Mobile Development", emoji: "📱" },
+          ].map((tech) => (
+            <div key={tech.name} className="rounded-xl p-3 border border-white/7 bg-white/3 flex flex-col gap-2">
+              <div className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs font-bold text-white/60">
+                {tech.emoji}
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-white" style={{ fontFamily: "var(--font-montserrat)" }}>{tech.name}</p>
+                <p className="text-[10px] text-white/40 mt-0.5">{tech.role}</p>
+                <span className="inline-block mt-1.5 text-[9px] px-1.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/35 font-medium">Stack</span>
+              </div>
             </div>
           ))}
         </div>

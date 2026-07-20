@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { LayoutGrid, Map, FileText, GitBranch, User, Globe } from "lucide-react";
+import { LayoutGrid, Map, FileText, GitBranch, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import CommandPalette from "./CommandPalette";
 
@@ -13,7 +13,6 @@ const navItems = [
   { href: "/canvas", label: "Canvas", icon: Map },
   { href: "/flows", label: "Flows", icon: GitBranch },
   { href: "/spaces", label: "Spaces", icon: Globe },
-  { href: "/profile", label: "Profile", icon: User },
 ];
 
 export default function TopNav() {
@@ -65,7 +64,7 @@ export default function TopNav() {
         </a>
         <CommandPalette />
         <Link
-          href="/profile"
+          href="/docs/about"
           className="w-7 h-7 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-brand/50 transition-all"
         >
           <Image src="/profile-main.jpg" alt="Abhishek" width={28} height={28} className="object-cover w-full h-full" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />

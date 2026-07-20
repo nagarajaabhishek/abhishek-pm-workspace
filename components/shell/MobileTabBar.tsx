@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutGrid, Map, FileText, GitBranch, User, Globe } from "lucide-react";
+import { LayoutGrid, Map, FileText, GitBranch, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tabs = [
@@ -11,7 +11,6 @@ const tabs = [
   { href: "/canvas", label: "Canvas", icon: Map },
   { href: "/flows", label: "Flows", icon: GitBranch },
   { href: "/spaces", label: "Spaces", icon: Globe },
-  { href: "/profile", label: "Profile", icon: User },
 ];
 
 export default function MobileTabBar() {
