@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MapPin, Mail, Calendar, ExternalLink, GitBranch } from "lucide-react";
-import { personalInfo, impactMetrics, skills, sectors, hobbies, communities } from "@/data/portfolioData";
+import { personalInfo, impactMetrics, skills, sectors, hobbies, communities, companies, education, startups, featured } from "@/data/portfolioData";
 import DocsPageHeader from "@/components/docs/DocsPageHeader";
 import { getDocPage } from "@/data/docsData";
 
@@ -92,6 +92,50 @@ export default function AboutMeDoc() {
       </section>
 
       <section className="mb-8">
+        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Work Experience</h2>
+        <div className="flex flex-col gap-4">
+          {companies.map((c) => (
+            <div key={c.id} className="border-l-2 border-brand/30 pl-4">
+              <p className="text-sm font-semibold text-white" style={{ fontFamily: "var(--font-montserrat)" }}>{c.role}</p>
+              <p className="text-xs text-brand/80">{c.name}</p>
+              <p className="text-[11px] text-white/35 mt-0.5">{c.period}</p>
+              {"description" in c && c.description && (
+                <p className="text-xs text-white/45 mt-1">{c.description}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Education</h2>
+        <div className="flex flex-col gap-4">
+          {education.map((e) => (
+            <div key={e.id} className="border-l-2 border-brand-purple/30 pl-4">
+              <p className="text-sm font-semibold text-white" style={{ fontFamily: "var(--font-montserrat)" }}>{e.degree}</p>
+              <p className="text-xs text-white/50">{e.university}</p>
+              <p className="text-[11px] text-white/30 mt-0.5">{e.location}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Startups Founded</h2>
+        <div className="flex flex-col gap-3">
+          {startups.map((s) => (
+            <div key={s.id} className="flex items-start gap-2">
+              <span className="text-brand text-xs mt-1">▸</span>
+              <div>
+                <p className="text-sm font-medium text-white">{s.name}</p>
+                <p className="text-xs text-white/40">{s.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-8">
         <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Sectors</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
@@ -128,6 +172,25 @@ export default function AboutMeDoc() {
       </section>
 
       <section className="mb-8">
+        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Featured & Media</h2>
+        <div className="grid sm:grid-cols-2 gap-2">
+          {featured.map((f) => (
+            <a key={f.id} href={f.url} target="_blank" rel="noopener noreferrer"
+              className="flex items-start gap-2.5 p-3 rounded-xl bg-white/3 border border-white/6 hover:bg-white/6 hover:border-brand/20 transition-all group">
+              <div className="w-6 h-6 rounded-lg bg-brand/15 border border-brand/20 flex items-center justify-center shrink-0 mt-0.5">
+                <ExternalLink className="w-3 h-3 text-brand" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs font-medium text-white group-hover:text-brand transition-colors leading-tight">{f.title}</p>
+                <p className="text-[10px] text-white/35 mt-0.5 line-clamp-2">{f.description}</p>
+                <p className="text-[10px] text-white/20 mt-1">{f.date}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-8">
         <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Beyond Work</h2>
         <div className="grid sm:grid-cols-2 gap-2">
           {hobbies.map((h) => (
@@ -140,7 +203,7 @@ export default function AboutMeDoc() {
       </section>
 
       <section className="mb-8">
-        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Built With</h2>
+        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Team</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           <div className="rounded-xl p-3 border border-white/7 bg-white/3 flex flex-col gap-2">
             <div className="w-8 h-8 rounded-xl overflow-hidden ring-1 ring-brand/20 shrink-0">
