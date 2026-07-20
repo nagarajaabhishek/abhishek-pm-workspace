@@ -17,7 +17,7 @@ export default function TicketModal({ ticket, onClose }: Props) {
     <Dialog open={!!ticket} onOpenChange={(o) => !o && onClose()}>
       <DialogContent className="bg-card border-border text-foreground max-w-lg">
         <DialogHeader>
-          <div className="flex items-center gap-2 mb-1">
+          <div className="flex items-center gap-2 mb-1 pr-8">
             <span className="text-xs text-slate-500 font-mono">{ticket.key}</span>
             <span className={`text-xs font-semibold ${priorityColors[ticket.priority]}`}>
               {ticket.priority}

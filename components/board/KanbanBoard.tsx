@@ -14,6 +14,7 @@ export default function KanbanBoard() {
   const [draggingId, setDraggingId] = useState<string | null>(null);
   const [overCol, setOverCol] = useState<Status | null>(null);
   const dragTicket = useRef<TicketCardType | null>(null);
+  const mouseDownPos = useRef<{ x: number; y: number } | null>(null);
 
   const toggleLabel = (label: Label) => {
     setActiveLabels((prev) =>
@@ -93,11 +94,19 @@ export default function KanbanBoard() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.15 }}
                       draggable
+                      onPointerDown={(e) => { mouseDownPos.current = { x: e.clientX, y: e.clientY }; }}
+                      onPointerUp={(e) => {
+                        const pos = mouseDownPos.current;
+                        if (!pos) return;
+                        const dist = Math.hypot(e.clientX - pos.x, e.clientY - pos.y);
+                        if (dist < 6) setSelected(ticket);
+                        mouseDownPos.current = null;
+                      }}
                       onDragStart={() => onDragStart(ticket)}
                       onDragEnd={onDragEnd}
                       style={{ cursor: "grab" }}
                     >
-                      <TicketCard ticket={ticket} onClick={setSelected} />
+                      <TicketCard ticket={ticket} onClick={() => {}} />
                     </motion.div>
                   ))}
                 </AnimatePresence>
