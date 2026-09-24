@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { streamText, Message } from "ai";
+import { streamText, CoreMessage as Message } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 import fs from "fs";
 import path from "path";
