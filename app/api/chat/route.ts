@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { streamText, CoreMessage as Message } from "ai";
+import { streamText } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 import fs from "fs";
 import path from "path";
@@ -9,7 +9,7 @@ export const maxDuration = 30;
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages }: { messages: Message[] } = await req.json();
+    const { messages }: { messages: any[] } = await req.json();
 
     // Read master_context.yaml
     let masterContext = "";
@@ -44,7 +44,7 @@ ${masterContext}
         messages,
       });
 
-      return result.toDataStreamResponse();
+      return result.toTextStreamResponse();
     } else {
       // Fallback if no OpenAI key is set
       return new Response(JSON.stringify({ 

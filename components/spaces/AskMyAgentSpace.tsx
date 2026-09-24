@@ -8,7 +8,7 @@ import { getSpacePage } from "@/data/spacesData";
 
 export default function AskMyAgentSpace() {
   const page = getSpacePage("chat")!;
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+  const chatOptions: any = {
     api: "/api/chat",
     initialMessages: [
       {
@@ -17,7 +17,14 @@ export default function AskMyAgentSpace() {
         content: "System initialized. Loaded Abhishek's master_context.yaml into context window. Ready for queries.",
       }
     ]
-  });
+  };
+  const { 
+    messages = [], 
+    input = "", 
+    handleInputChange, 
+    handleSubmit, 
+    isLoading = false 
+  } = useChat(chatOptions) as any;
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +50,7 @@ export default function AskMyAgentSpace() {
 
         {/* Chat Area */}
         <div className="flex-1 overflow-y-auto p-4 md:p-6 font-mono text-sm space-y-6">
-          {messages.map((m) => (
+          {messages.map((m: any) => (
             <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`max-w-[85%] ${m.role === 'user' ? 'bg-[#238636] text-white' : 'text-white/80'} rounded-lg px-4 py-3 whitespace-pre-wrap leading-relaxed`}>
                 {m.role === 'assistant' && m.id !== 'system-init' && (

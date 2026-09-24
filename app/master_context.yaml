@@ -150,10 +150,7 @@ projects:
     date: "Feb 2026 - Present"
     tags: ["ai", "engineering", "automation", "product"]
     description: "LaTeX resume engine (YAML → Jinja2 → custom class) integrated into a Job Automation monorepo: sheet-backed sourcing/evaluation, master-profile–grounded scoring, and per-JD tailoring with QA."
-    bullets:
-      - "Own the \\textbf{single source of truth} path from `master_context.yaml` through role-specific YAML and compiled dense profile matrices, so LLM job evaluation and resume bullets stay auditable, consistent, and ATS-safe (XYZ bullets, weak-verb bans, two-page limits)."
-      - "Implemented \\textbf{TailorAgent} in the automation repo: on strong matches it clones a base role YAML, applies JD-specific LLM edits with guardrails from the tailor QA checklist, and regenerates structured `.tex`/PDF outputs—wired into the main pipeline CLI and `tailor_from_urls.py` for batch runs and the Manual JD Tailor Google Sheet workflow."
-      - "Built \\textbf{operator surfaces} for the same stack—a FastAPI backend and React ops dashboard—on top of Google Sheets for job ingest, verdicts, evidence JSON, and per-row tailor status including PDF paths and optional tailored-vs-generic validation scores."
+
     tech_stack:
       - "Python"
       - "LaTeX (custom .cls + Jinja2 templates)"

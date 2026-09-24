@@ -56,14 +56,17 @@ export default function ChessGameCard({ game, username }: { game: any, username:
       </div>
 
       <div className="w-full aspect-square bg-[#0d1117] pointer-events-none p-1 flex items-center justify-center">
-        <Chessboard 
-          position={fen} 
-          boardOrientation={isWhite ? "white" : "black"} 
-          customDarkSquareStyle={{ backgroundColor: "#2d333b" }}
-          customLightSquareStyle={{ backgroundColor: "#adbac7" }}
-          arePiecesDraggable={false}
-          boardWidth={248}
-        />
+        {(() => {
+          const AnyBoard = Chessboard as any;
+          return <AnyBoard
+            position={fen}
+            boardOrientation={isWhite ? "white" : "black"} 
+            customDarkSquareStyle={{ backgroundColor: "#2d333b" }}
+            customLightSquareStyle={{ backgroundColor: "#adbac7" }}
+            arePiecesDraggable={false}
+            boardWidth={248}
+          />;
+        })()}
       </div>
 
       <div className="p-3">
