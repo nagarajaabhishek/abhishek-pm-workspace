@@ -160,7 +160,7 @@ export const caseStudies = [
 
 export const teardownDocs = [
   {
-    id: "coc",
+    id: "clash-of-clans",
     title: "Clash of Clans",
     category: "Mobile Gaming",
     date: "2024",
@@ -170,7 +170,7 @@ export const teardownDocs = [
     insight: "The clan system is the product. Without social obligation, CoC is just a builder game.",
   },
   {
-    id: "gmaps",
+    id: "google-maps",
     title: "Google Maps",
     category: "Navigation",
     date: "2024",
