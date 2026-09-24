@@ -1,6 +1,6 @@
-import type { DocPage } from "@/data/docsData";
+import type { SpacePage } from "@/data/spacesData";
 
-export default function DocsPageHeader({ page }: { page: DocPage }) {
+export default function SpacesPageHeader({ page }: { page: SpacePage }) {
   return (
     <header className="mb-8 pb-6 border-b border-white/8">
       <div className="flex items-center gap-2 mb-2">

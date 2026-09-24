@@ -1,7 +1,7 @@
-import { githubRepositories, portfolioWebsites } from "./portfolioData";
+import { githubRepositories, portfolioWebsites, productTeardowns } from "./portfolioData";
 
 export type Priority = "P1" | "P2" | "P3" | "P4";
-export type Status = "Concept" | "Building" | "Shipped" | "Archive";
+export type Status = "Concept" | "Building" | "Shipped" | "Archive" | "Product Management Work" | "Freelance";
 export type Label = "AI" | "Mobile" | "Web" | "Freelance" | "Open Source" | "Backend" | "Python" | "React Native" | "FinTech";
 
 export interface TicketCard {
@@ -38,6 +38,16 @@ function toTickets(
 export const allTickets: TicketCard[] = [
   ...toTickets(githubRepositories as any, "APN"),
   ...toTickets(portfolioWebsites as any, "APN"),
+  ...productTeardowns.map((td, i) => ({
+    id: td.id,
+    key: `PMW-${String(i + 1).padStart(3, "0")}`,
+    title: td.title,
+    description: `Product teardown of ${td.title} (${td.category})`,
+    status: "Product Management Work" as Status,
+    labels: [] as Label[],
+    priority: "P3" as Priority,
+    stack: [],
+  })),
 ];
 
 export const columns: { id: Status; label: string; emoji: string }[] = [
@@ -45,6 +55,8 @@ export const columns: { id: Status; label: string; emoji: string }[] = [
   { id: "Building", label: "Building", emoji: "🔨" },
   { id: "Shipped", label: "Shipped", emoji: "✅" },
   { id: "Archive", label: "Archive", emoji: "🗂️" },
+  { id: "Freelance", label: "Freelance", emoji: "💼" },
+  { id: "Product Management Work", label: "Product Management Work", emoji: "📊" },
 ];
 
 export const allLabels: Label[] = ["AI", "Mobile", "Web", "Freelance", "Open Source", "Backend", "Python", "React Native", "FinTech"];

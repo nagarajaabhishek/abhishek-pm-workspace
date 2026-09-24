@@ -1,13 +1,13 @@
 import { Puzzle } from "lucide-react";
-import DocsPageHeader from "@/components/docs/DocsPageHeader";
-import { getDocPage, teardownDocs } from "@/data/docsData";
+import SpacesPageHeader from "@/components/spaces/SpacesPageHeader";
+import { getSpacePage, teardownDocs } from "@/data/spacesData";
 
 export default function TeardownsDocPage() {
-  const page = getDocPage("teardowns")!;
+  const page = getSpacePage("teardowns")!;
 
   return (
     <div>
-      <DocsPageHeader page={page} />
+      <SpacesPageHeader page={page} />
 
       <p className="text-sm text-white/50 mb-6 leading-relaxed">
         Structured analyses of products I admire — retention loops, monetization strategies,

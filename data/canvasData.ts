@@ -28,43 +28,42 @@ export const canvasHub = {
   y: 0,
 };
 
+const projectPositions: Record<string, { x: number; y: number }> = {
+  "splitwiser": { x: -380, y: -120 },
+  catms: { x: -380, y: 160 },
+  thara: { x: -80, y: -240 },
+  "product-pal": { x: 180, y: -240 },
+  workthere: { x: 420, y: -220 },
+  "logos-tax": { x: 420, y: 160 },
+};
+
 export const canvasProjects: CanvasProject[] = githubRepositories
-  .filter((r) => r.featured)
-  .map((r, i) => {
-    const angles = [-Math.PI / 2, -Math.PI / 6, Math.PI / 6, Math.PI / 2, (5 * Math.PI) / 6];
-    const radius = 320;
-    const angle = angles[i % angles.length];
-    return {
-      id: r.id,
-      name: r.name,
-      description: r.description,
-      status: r.status,
-      stack: r.stack,
-      link: r.github,
-      x: Math.cos(angle) * radius,
-      y: Math.sin(angle) * radius,
-    };
-  });
-
-export const canvasStickies: CanvasSticky[] = impactMetrics.map((m, i) => ({
-  id: m.id,
-  value: m.value,
-  label: m.label,
-  color: (["brand", "purple", "green"] as const)[i % 3],
-  x: -420 + i * 180,
-  y: 280,
-}));
-
-export const canvasSecondaryProjects: CanvasProject[] = githubRepositories
-  .filter((r) => !r.featured && (r.status === "Shipped" || r.priority === "P2"))
-  .slice(0, 4)
-  .map((r, i) => ({
+  .filter((r) => r.id in projectPositions)
+  .map((r) => ({
     id: r.id,
     name: r.name,
     description: r.description,
     status: r.status,
     stack: r.stack,
     link: r.github,
-    x: -200 + i * 140,
-    y: -280,
+    x: projectPositions[r.id].x,
+    y: projectPositions[r.id].y,
   }));
+
+export const canvasStickies: CanvasSticky[] = impactMetrics.map((m, i) => {
+  const stickyPositions = [
+    { x: -250, y: 380 },
+    { x: -50, y: 380 },
+    { x: 150, y: 380 },
+  ];
+  return {
+    id: m.id,
+    value: m.value,
+    label: m.label,
+    color: (["brand", "purple", "green"] as const)[i % 3],
+    x: stickyPositions[i % 3].x,
+    y: stickyPositions[i % 3].y,
+  };
+});
+
+export const canvasSecondaryProjects: CanvasProject[] = [];

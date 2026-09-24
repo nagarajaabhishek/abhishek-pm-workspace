@@ -1,13 +1,5 @@
-import type { Metadata } from "next";
-import { Suspense } from "react";
-import SpacesContent from "./SpacesContent";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = { title: "Spaces — Abhishek Nagaraja" };
-
-export default function SpacesPage() {
-  return (
-    <Suspense fallback={null}>
-      <SpacesContent />
-    </Suspense>
-  );
+export default function SpacesIndexPage() {
+  redirect("/spaces/about");
 }

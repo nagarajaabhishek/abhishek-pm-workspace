@@ -1,7 +1,7 @@
 import { ExternalLink, Mic, Trophy, BookOpen } from "lucide-react";
 import { featured } from "@/data/portfolioData";
-import DocsPageHeader from "@/components/docs/DocsPageHeader";
-import { getDocPage } from "@/data/docsData";
+import SpacesPageHeader from "@/components/spaces/SpacesPageHeader";
+import { getSpacePage } from "@/data/spacesData";
 
 const typeIcons = {
   podcast: Mic,
@@ -9,7 +9,7 @@ const typeIcons = {
 };
 
 export default function MediaSpeakingDoc() {
-  const page = getDocPage("media")!;
+  const page = getSpacePage("media")!;
 
   const speaking = featured.filter((f) => f.title.toLowerCase().includes("speaking"));
   const press = featured.filter((f) => f.type === "article" && !f.title.toLowerCase().includes("speaking"));
@@ -17,7 +17,7 @@ export default function MediaSpeakingDoc() {
 
   return (
     <div>
-      <DocsPageHeader page={page} />
+      <SpacesPageHeader page={page} />
 
       <p className="text-sm text-white/50 mb-6 leading-relaxed">
         Press coverage, podcast appearances, hackathon wins, and speaking engagements.

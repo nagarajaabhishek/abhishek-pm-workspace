@@ -6,12 +6,11 @@ import { Command } from "cmdk";
 import { LayoutGrid, Map, FileText, GitBranch, Search, User, Globe } from "lucide-react";
 
 const commands = [
-  { label: "Go to Docs", href: "/docs", icon: FileText, shortcut: "D" },
   { label: "Go to Board", href: "/board", icon: LayoutGrid, shortcut: "B" },
   { label: "Go to Canvas", href: "/canvas", icon: Map, shortcut: "C" },
   { label: "Go to Flows", href: "/flows", icon: GitBranch, shortcut: "F" },
   { label: "Go to Spaces", href: "/spaces", icon: Globe, shortcut: "S" },
-  { label: "Go to About Me", href: "/docs/about", icon: User, shortcut: "P" },
+  { label: "Go to About Me", href: "/spaces/about", icon: User, shortcut: "P" },
 ];
 
 export default function CommandPalette() {

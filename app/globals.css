@@ -138,3 +138,26 @@
     font-family: var(--font-montserrat), 'Montserrat', sans-serif;
   }
 }
+
+@layer utilities {
+  .bg-chess-pattern {
+    position: relative;
+    background-color: var(--background);
+  }
+  .bg-chess-pattern::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: conic-gradient(rgba(255,255,255,0.02) 90deg, transparent 90deg 180deg, rgba(255,255,255,0.02) 180deg 270deg, transparent 270deg);
+    background-size: 100px 100px;
+    transform: perspective(800px) rotateX(60deg) translateY(-100px);
+    transform-origin: center center;
+    z-index: -1;
+    pointer-events: none;
+    mask-image: radial-gradient(circle at center, black 10%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at center, black 10%, transparent 70%);
+  }
+}

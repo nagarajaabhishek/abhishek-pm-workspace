@@ -59,12 +59,14 @@ function buildInitialGraph(): { nodes: Node[]; edges: Edge[] } {
       source: canvasHub.id,
       target: p.id,
       style: { stroke: "hsl(14 100% 60% / 0.25)", strokeWidth: 1.5 },
+      zIndex: -1,
     })),
     ...canvasSecondaryProjects.map((p) => ({
       id: `hub-${p.id}`,
       source: canvasHub.id,
       target: p.id,
       style: { stroke: "rgba(255,255,255,0.08)", strokeWidth: 1 },
+      zIndex: -1,
     })),
   ];
 

@@ -15,7 +15,8 @@ export const personalInfo = {
     instagram: "https://www.instagram.com/abhishek.nagaraja",
   },
   calendarLink: "https://calendar.app.google/JhE1yyAMJLZME4QSA",
-  openToWork: ["United States", "Dubai", "Japan"],
+  openToWork: ["United States", "Ireland", "Japan"],
+  fuel: "Guinness & Buchanan's Whiskey",
   roles: [
     "Freelance Consultant",
     "AI Agent Developer",
@@ -77,7 +78,7 @@ export const companies = [
 export const startups = [
   { id: "edam", name: "e-DAM", description: "EduTech + community marketplace platform" },
   { id: "edam-cms", name: "e-DAM CMS", description: "Content management system for e-DAM" },
-  { id: "casablanca", name: "Casablanca Cocktails", description: "Cocktail recipes and mixology platform" },
+
   { id: "logos", name: "Logos Tax Systems", description: "AI-first tax advisory platform for SMB owners" },
   { id: "conciergeai", name: "ConciergeAI", description: "White-label AI voice & text concierge for large-scale events" },
 ];
@@ -136,50 +137,7 @@ export const githubRepositories = [
     stack: ["Shell", "Markdown", "Linear"],
     github: "https://github.com/nagarajaabhishek/CATMS",
   },
-  {
-    id: "openclaw",
-    name: "openclaw",
-    description:
-      "Self-hosted personal AI gateway — Telegram bot + Control UI, Gemini 2.0 Flash agent, Linear MCP, and plugin system running on DigitalOcean via Docker.",
-    status: "Shipped" as const,
-    labels: ["AI", "Backend"],
-    priority: "P2" as const,
-    stack: ["TypeScript", "Telegram", "Gemini", "Docker"],
-    github: "https://github.com/nagarajaabhishek/openclaw",
-  },
-  {
-    id: "conciergeai",
-    name: "ConciergeAI",
-    description:
-      "White-label AI voice & text concierge for large-scale events — attendees call or text one number for instant multilingual answers on logistics, navigation, and schedules. Powered by Claude, Twilio, WhatsApp, and a RAG knowledge base.",
-    status: "Shipped" as const,
-    labels: ["AI", "Backend"],
-    priority: "P1" as const,
-    stack: ["TypeScript", "Claude", "Twilio", "WhatsApp", "RAG"],
-    github: "https://www.thefoundersarena.com",
-    featured: true,
-  },
-  {
-    id: "resume-agent",
-    name: "resume_agent",
-    description: "LaTeX-based resume optimization agent with custom rendering pipelines.",
-    status: "Shipped" as const,
-    labels: ["AI", "Open Source"],
-    priority: "P3" as const,
-    stack: ["Python", "LaTeX"],
-    github: "https://github.com/nagarajaabhishek/resume_agent",
-  },
-  {
-    id: "jobs",
-    name: "jobs",
-    description:
-      "End-to-end Job Search OS: multi-platform sourcing (LinkedIn, Indeed, ATS), LLM-powered evaluation with 0-100 conviction scores, LaTeX resume tailoring pipeline, ops dashboard (React + FastAPI), and feedback-driven learning.",
-    status: "Building" as const,
-    labels: ["AI", "Backend"],
-    priority: "P2" as const,
-    stack: ["Python", "FastAPI", "React", "LLMs"],
-    github: "https://github.com/nagarajaabhishek/jobs",
-  },
+
   {
     id: "product-pal",
     name: "product-pal",
@@ -196,7 +154,7 @@ export const githubRepositories = [
     name: "WorkThere",
     description:
       "Global Mobility & Talent SaaS — job board with WorkThere Match Score, smart profile builder, visa/PR logistics, net income calculator, and country comparison tool.",
-    status: "Building" as const,
+    status: "Concept" as const,
     labels: ["Web"],
     priority: "P2" as const,
     stack: ["Next.js", "Prisma", "Supabase"],
@@ -213,40 +171,12 @@ export const githubRepositories = [
     stack: ["Python", "Stockfish"],
     github: "https://github.com/nagarajaabhishek/chess-analyzer",
   },
-  {
-    id: "seeker-of-story",
-    name: "SeekerOfStory",
-    description:
-      "Free mentorship platform for career transitioners — founder media profiles, AI-powered mentor search, and community storytelling infrastructure.",
-    status: "Shipped" as const,
-    labels: ["Web", "Open Source"],
-    priority: "P3" as const,
-    stack: ["Next.js", "Clerk", "Drizzle ORM", "Neon"],
-    github: "https://github.com/logan-megamission/SeekerOfStory",
-  },
-  {
-    id: "pm-workspace",
-    name: "abhishek-pm-workspace",
-    description: "This portfolio — a SaaS PM workspace with 4 views: Board, Canvas, Docs, Flows",
-    status: "Building" as const,
-    labels: ["Web", "Open Source"],
-    priority: "P1" as const,
-    stack: ["Next.js 15", "TypeScript", "Tailwind", "shadcn/ui"],
-    github: "https://github.com/nagarajaabhishek/abhishek-pm-workspace",
-    featured: true,
-  },
+
+
 ];
 
 export const portfolioWebsites = [
-  {
-    id: "abhisheknagaraja-com",
-    name: "abhisheknagaraja.com",
-    description: "Personal portfolio website showcasing work and impact",
-    status: "Shipped" as const,
-    labels: ["Web"],
-    priority: "P3" as const,
-    url: "https://abhisheknagaraja.com",
-  },
+
   {
     id: "excursionsbycc",
     name: "Excursions by CC",
@@ -260,29 +190,12 @@ export const portfolioWebsites = [
     id: "medna",
     name: "Medna Construction",
     description: "Construction company website showcasing services and projects",
-    status: "Shipped" as const,
+    status: "Freelance" as const,
     labels: ["Web", "Freelance"],
     priority: "P3" as const,
     url: "https://www.mednaconstruction.com/",
   },
-  {
-    id: "founders-arena",
-    name: "The Founders Arena",
-    description: "Platform for founders and entrepreneurs",
-    status: "Shipped" as const,
-    labels: ["Web", "Freelance"],
-    priority: "P3" as const,
-    url: "https://thefoundersarena.netlify.app",
-  },
-  {
-    id: "casablanca",
-    name: "Casablanca Cocktails",
-    description: "Cocktail recipes and mixology platform",
-    status: "Shipped" as const,
-    labels: ["Web"],
-    priority: "P3" as const,
-    url: "https://casablancacocktails.netlify.app",
-  },
+
 ];
 
 export const impactMetrics = [
@@ -378,6 +291,14 @@ export const productTeardowns = [
 ];
 
 export const featured = [
+  {
+    id: "voyage-dallas",
+    type: "article" as const,
+    title: "Voyage Dallas Interview: Abhishek of Logos Tax Systems",
+    description: "Featured interview discussing my product journey, building Logos Tax Systems, and key insights.",
+    date: "2024",
+    url: "https://voyagedallas.com/interview/inspiring-conversations-with-abhishek-of-logos-tax-systems/",
+  },
   {
     id: "youtube-1",
     type: "podcast" as const,

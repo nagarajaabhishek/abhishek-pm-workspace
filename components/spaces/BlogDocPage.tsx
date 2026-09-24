@@ -1,7 +1,7 @@
 import { Clock } from "lucide-react";
 import { blogPosts } from "@/data/portfolioData";
-import DocsPageHeader from "@/components/docs/DocsPageHeader";
-import { getDocPage } from "@/data/docsData";
+import SpacesPageHeader from "@/components/spaces/SpacesPageHeader";
+import { getSpacePage } from "@/data/spacesData";
 
 const categoryColors: Record<string, string> = {
   Personal: "bg-purple-500/15 text-purple-300 border-purple-500/20",
@@ -17,11 +17,11 @@ Experienced players develop pattern recognition. Grandmasters don't calculate mi
 Time pressure in chess forces you to balance thorough analysis with decisive action. The key lesson: better a good decision made quickly than a perfect decision made too late.`;
 
 export default function BlogDocPage() {
-  const page = getDocPage("blog")!;
+  const page = getSpacePage("blog")!;
 
   return (
     <div>
-      <DocsPageHeader page={page} />
+      <SpacesPageHeader page={page} />
 
       <p className="text-sm text-white/50 mb-6 leading-relaxed">
         Thoughts on AI, product management, communities, and the craft of building.

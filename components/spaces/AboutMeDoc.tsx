@@ -1,15 +1,26 @@
 import Image from "next/image";
-import { MapPin, Mail, Calendar, ExternalLink, GitBranch } from "lucide-react";
+import { MapPin, Mail, Calendar, ExternalLink, GitBranch, Beer, GlassWater, Trophy } from "lucide-react";
 import { personalInfo, impactMetrics, skills, sectors, hobbies, communities, companies, education, startups, featured } from "@/data/portfolioData";
-import DocsPageHeader from "@/components/docs/DocsPageHeader";
-import { getDocPage } from "@/data/docsData";
+import SpacesPageHeader from "@/components/spaces/SpacesPageHeader";
+import { getSpacePage } from "@/data/spacesData";
+import ChessTracker from "@/components/chess/ChessTracker";
+
+const HarpIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} xmlns="http://www.w3.org/2000/svg">
+    {/* Simplified Harp Shape */}
+    <path d="M19 19c-2-1-4-2-4-5V5c0 0-4-1-8-2v16c0 0 2 1 4 1s4-1 4-1" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M7 3s3 2 5 5c2 3 3 6 3 6" strokeLinecap="round" strokeLinejoin="round"/>
+    {/* Strings */}
+    <path d="M10 4v14M12 6v12M14 9v9" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
 
 export default function AboutMeDoc() {
-  const page = getDocPage("about")!;
+  const page = getSpacePage("about")!;
 
   return (
     <div>
-      <DocsPageHeader page={page} />
+      <SpacesPageHeader page={page} />
 
       <div className="rounded-xl p-5 mb-6 flex items-start gap-4"
         style={{ background: "linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(0 0% 8%) 100%)", border: "1px solid rgba(255,255,255,0.07)" }}>
@@ -136,6 +147,24 @@ export default function AboutMeDoc() {
       </section>
 
       <section className="mb-8">
+        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Featured In</h2>
+        <div className="grid gap-3">
+          {featured.map((f) => (
+            <a key={f.id} href={f.url} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-white/10 hover:border-brand/30 transition-colors group">
+              <div className="mt-1 flex-shrink-0 text-white/40 group-hover:text-brand transition-colors">
+                <ExternalLink className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-white group-hover:text-brand transition-colors" style={{ fontFamily: "var(--font-montserrat)" }}>{f.title}</p>
+                <p className="text-xs text-white/50 mt-0.5">{f.description}</p>
+                <p className="text-[10px] text-white/30 mt-1">{f.date}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-8">
         <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Sectors</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
@@ -249,6 +278,29 @@ export default function AboutMeDoc() {
         </div>
       </section>
 
+      <section className="mb-8">
+        <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Off the Clock</h2>
+        <div className="flex gap-4">
+          <div className="flex-1 bg-white/5 border-2 border-white/10 p-4 transition-transform hover:rotate-1" style={{ borderRadius: "10px 20px 8px 15px", transform: "rotate(-1deg)" }}>
+            <p className="text-xs text-white/60 mb-2">Favorite Beer</p>
+            <div className="flex items-center gap-2">
+              <HarpIcon className="w-5 h-5 text-[#E7C775]" />
+              <span className="font-bold text-white font-mono">Guinness</span>
+            </div>
+          </div>
+          <div className="flex-1 bg-white/5 border-2 border-white/10 p-4 transition-transform hover:-rotate-1" style={{ borderRadius: "15px 8px 20px 10px", transform: "rotate(1deg)" }}>
+            <p className="text-xs text-white/60 mb-2">Favorite Whiskey</p>
+            <div className="flex items-center gap-2">
+              <GlassWater className="w-5 h-5 text-orange-400" />
+              <span className="font-bold text-white font-mono">Buchanan's</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Live Chess.com Games */}
+        <ChessTracker />
+      </section>
+
       <section>
         <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Get in Touch</h2>
         <div className="flex items-center gap-3 flex-wrap">
@@ -259,6 +311,11 @@ export default function AboutMeDoc() {
           <a href={personalInfo.calendarLink} target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-xs bg-brand/10 border border-brand/20 text-brand px-2.5 py-1 rounded-lg hover:bg-brand/20 transition-colors">
             <Calendar className="w-3.5 h-3.5" /> Book a Call
+          </a>
+          <a href={personalInfo.socialLinks.chess} target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs bg-white/10 border border-white/20 text-white px-2.5 py-1 rounded-lg hover:bg-white/20 transition-colors"
+            style={{ fontFamily: "var(--font-montserrat)" }}>
+            <Trophy className="w-3.5 h-3.5" /> Challenge me to Chess
           </a>
           <a href={personalInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-xs text-white/50 hover:text-brand transition-colors">

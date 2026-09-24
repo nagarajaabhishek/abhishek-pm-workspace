@@ -1,14 +1,14 @@
 import { Download, ExternalLink } from "lucide-react";
 import { personalInfo, education, companies, startups, skills } from "@/data/portfolioData";
-import DocsPageHeader from "@/components/docs/DocsPageHeader";
-import { getDocPage } from "@/data/docsData";
+import SpacesPageHeader from "@/components/spaces/SpacesPageHeader";
+import { getSpacePage } from "@/data/spacesData";
 
 export default function ResumeDoc() {
-  const page = getDocPage("resume")!;
+  const page = getSpacePage("resume")!;
 
   return (
     <div>
-      <DocsPageHeader page={page} />
+      <SpacesPageHeader page={page} />
 
       <div className="rounded-xl p-5 mb-6"
         style={{ background: "linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(0 0% 8%) 100%)", border: "1px solid rgba(255,255,255,0.07)" }}>

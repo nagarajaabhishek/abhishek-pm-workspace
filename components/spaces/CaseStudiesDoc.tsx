@@ -1,13 +1,13 @@
 import { ExternalLink } from "lucide-react";
-import DocsPageHeader from "@/components/docs/DocsPageHeader";
-import { caseStudies, getDocPage } from "@/data/docsData";
+import SpacesPageHeader from "@/components/spaces/SpacesPageHeader";
+import { caseStudies, getSpacePage } from "@/data/spacesData";
 
 export default function CaseStudiesDoc() {
-  const page = getDocPage("case-studies")!;
+  const page = getSpacePage("case-studies")!;
 
   return (
     <div>
-      <DocsPageHeader page={page} />
+      <SpacesPageHeader page={page} />
 
       <p className="text-sm text-white/50 mb-6 leading-relaxed">
         Deep dives into products and initiatives I&apos;ve built — from 0→1 startups to shipped AI products.

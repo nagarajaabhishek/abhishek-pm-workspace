@@ -1,4 +1,4 @@
-export interface DocPage {
+export interface SpacePage {
   slug: string;
   title: string;
   emoji: string;
@@ -6,7 +6,7 @@ export interface DocPage {
   section: "profile" | "work" | "content";
 }
 
-export const DOC_PAGES: DocPage[] = [
+export const SPACE_PAGES: SpacePage[] = [
   {
     slug: "about",
     title: "About Me",
@@ -49,16 +49,44 @@ export const DOC_PAGES: DocPage[] = [
     description: "Thoughts on AI, product, and communities",
     section: "content",
   },
+  {
+    slug: "communities",
+    title: "Communities",
+    emoji: "🌐",
+    description: "Groups and ecosystems I'm a part of",
+    section: "content",
+  },
+  {
+    slug: "podcast",
+    title: "Podcast",
+    emoji: "🎙️",
+    description: "My podcast appearances and conversations",
+    section: "content",
+  },
+  {
+    slug: "skills",
+    title: "Agent Skills",
+    emoji: "🧠",
+    description: "My technical capabilities, written as agent instructions",
+    section: "content",
+  },
+  {
+    slug: "chat",
+    title: "Ask My Agent",
+    emoji: "🤖",
+    description: "Chat with an AI that knows my entire workspace",
+    section: "content",
+  },
 ];
 
-export const DOC_SECTIONS = [
+export const SPACE_SECTIONS = [
   { id: "profile" as const, label: "Profile" },
   { id: "work" as const, label: "Work" },
   { id: "content" as const, label: "Content" },
 ];
 
-export function getDocPage(slug: string): DocPage | undefined {
-  return DOC_PAGES.find((p) => p.slug === slug);
+export function getSpacePage(slug: string): SpacePage | undefined {
+  return SPACE_PAGES.find((p) => p.slug === slug);
 }
 
 export const caseStudies = [
