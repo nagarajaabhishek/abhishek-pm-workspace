@@ -3,8 +3,9 @@ import { ArrowLeft, MapPin } from "lucide-react";
 
 export default function GoogleMapsTeardown() {
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20 max-w-3xl mx-auto mt-8 px-4 sm:px-6">
-      <div className="mb-10">
+    <div className="h-full overflow-y-auto w-full">
+      <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20 max-w-3xl mx-auto mt-8 px-4 sm:px-6">
+        <div className="mb-10">
         <Link href="/spaces/case-studies" className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors mb-8">
           <ArrowLeft className="w-4 h-4" /> Back to Spaces
         </Link>
@@ -63,6 +64,7 @@ export default function GoogleMapsTeardown() {
           Utility drives adoption, but ecosystems drive retention. If you can build a tool that users rely on daily, look for ways to layer a network effect or UGC ecosystem on top of it to build a lasting moat.
         </p>
       </article>
+    </div>
     </div>
   );
 }

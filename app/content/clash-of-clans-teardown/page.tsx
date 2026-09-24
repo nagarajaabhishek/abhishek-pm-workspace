@@ -3,8 +3,9 @@ import { ArrowLeft, Swords } from "lucide-react";
 
 export default function ClashOfClansTeardown() {
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20 max-w-3xl mx-auto mt-8 px-4 sm:px-6">
-      <div className="mb-10">
+    <div className="h-full overflow-y-auto w-full">
+      <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20 max-w-3xl mx-auto mt-8 px-4 sm:px-6">
+        <div className="mb-10">
         <Link href="/spaces/case-studies" className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors mb-8">
           <ArrowLeft className="w-4 h-4" /> Back to Spaces
         </Link>
@@ -63,6 +64,7 @@ export default function ClashOfClansTeardown() {
           If your product suffers from long-term churn, ask yourself: How can we introduce social obligation? When users feel accountable to a community or a team, retention metrics fundamentally change.
         </p>
       </article>
+    </div>
     </div>
   );
 }
