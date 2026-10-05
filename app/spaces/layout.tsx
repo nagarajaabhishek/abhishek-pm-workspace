@@ -10,7 +10,7 @@ export default function SpacesLayout({ children }: { children: React.ReactNode }
   return (
     <div className="flex h-full min-h-[calc(100vh-3rem)]">
       {/* Mobile menu button - only visible on mobile */}
-      <div className="md:hidden absolute top-0 left-0 right-0 flex items-center px-4 py-3 border-b border-border bg-background z-50">
+      <div className="md:hidden absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 border-b border-border bg-background z-50">
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className="p-2 hover:bg-white/10 rounded-lg transition-colors"
@@ -22,6 +22,12 @@ export default function SpacesLayout({ children }: { children: React.ReactNode }
             <Menu className="w-5 h-5" />
           )}
         </button>
+        <div className="flex items-center gap-2">
+          <div className="w-5 h-5 rounded-md bg-brand/20 border border-brand/30 flex items-center justify-center">
+            <div className="w-3 h-3 rounded bg-brand" />
+          </div>
+          <span className="text-sm font-semibold text-white">Logan's Workspace</span>
+        </div>
       </div>
 
       {/* Backdrop overlay - only visible on mobile when sidebar is open */}
@@ -34,7 +40,7 @@ export default function SpacesLayout({ children }: { children: React.ReactNode }
       )}
 
       {/* Sidebar - hidden on mobile by default, visible on md and up */}
-      <div className={`${sidebarOpen ? "block" : "hidden"} md:block md:w-56 md:shrink-0 md:relative fixed top-14 w-56 h-[calc(100vh-3.5rem)] md:h-auto md:top-auto md:w-56 md:inset-auto z-40 md:z-auto`}>
+      <div className={`${sidebarOpen ? "block" : "hidden"} md:block md:w-56 md:shrink-0 md:relative fixed inset-0 top-14 w-56 md:top-auto md:inset-auto z-40 md:z-auto overflow-y-auto`}>
         <SpacesSidebar />
       </div>
 
