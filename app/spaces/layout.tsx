@@ -24,13 +24,22 @@ export default function SpacesLayout({ children }: { children: React.ReactNode }
         </button>
       </div>
 
+      {/* Backdrop overlay - only visible on mobile when sidebar is open */}
+      {sidebarOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/50 z-30"
+          onClick={() => setSidebarOpen(false)}
+          aria-label="Close menu"
+        />
+      )}
+
       {/* Sidebar - hidden on mobile by default, visible on md and up */}
-      <div className={`${sidebarOpen ? "block" : "hidden"} md:block md:w-56 md:shrink-0 md:relative fixed inset-0 top-14 w-full md:top-auto md:inset-auto z-40 md:z-auto`}>
+      <div className={`${sidebarOpen ? "block" : "hidden"} md:block md:w-56 md:shrink-0 md:relative fixed top-14 w-56 h-[calc(100vh-3.5rem)] md:h-auto md:top-auto md:w-56 md:inset-auto z-40 md:z-auto`}>
         <SpacesSidebar />
       </div>
 
       {/* Main content */}
-      <div className="flex-1 overflow-y-auto w-full md:w-auto pt-14 md:pt-0">
+      <div className="flex-1 overflow-y-auto w-full md:w-auto pt-4 md:pt-0">
         <div className="max-w-3xl mx-auto px-4 md:px-6 py-8 pb-24 md:pb-8">
           {children}
         </div>
