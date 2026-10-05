@@ -148,16 +148,35 @@ export default function AboutMeDoc() {
 
       <section className="mb-8">
         <h2 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3" style={{ fontFamily: "var(--font-montserrat)" }}>Featured In</h2>
-        <div className="grid gap-3">
+        <div className="grid sm:grid-cols-2 gap-4">
           {featured.map((f) => (
-            <a key={f.id} href={f.url} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-white/10 hover:border-brand/30 transition-colors group">
-              <div className="mt-1 flex-shrink-0 text-white/40 group-hover:text-brand transition-colors">
-                <ExternalLink className="w-4 h-4" />
+            <a key={f.id} href={f.url} target="_blank" rel="noopener noreferrer"
+              className="group rounded-xl overflow-hidden border border-white/10 hover:border-brand/50 transition-all hover:shadow-lg hover:shadow-brand/10 flex flex-col h-full"
+              style={{ background: "linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(0 0% 8%) 100%)" }}>
+              {/* Card Header/Image Area */}
+              <div className="relative h-40 bg-gradient-to-br from-brand/20 to-brand/5 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity" style={{
+                  backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,127,80,0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(100,200,255,0.2), transparent 50%)"
+                }}></div>
+                <div className="relative text-white/30 group-hover:text-brand/50 transition-colors">
+                  <ExternalLink className="w-10 h-10" />
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-semibold text-white group-hover:text-brand transition-colors" style={{ fontFamily: "var(--font-montserrat)" }}>{f.title}</p>
-                <p className="text-xs text-white/50 mt-0.5">{f.description}</p>
-                <p className="text-[10px] text-white/30 mt-1">{f.date}</p>
+
+              {/* Card Content */}
+              <div className="p-4 flex flex-col flex-1">
+                <p className="text-sm font-semibold text-white group-hover:text-brand transition-colors line-clamp-2" style={{ fontFamily: "var(--font-montserrat)" }}>
+                  {f.title}
+                </p>
+                <p className="text-xs text-white/50 mt-2 line-clamp-2 flex-1">
+                  {f.description}
+                </p>
+                <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
+                  <span className="text-[10px] text-white/30">{f.date}</span>
+                  <span className="inline-flex items-center gap-1 text-[10px] text-brand/60 group-hover:text-brand transition-colors">
+                    Read More <ExternalLink className="w-2.5 h-2.5" />
+                  </span>
+                </div>
               </div>
             </a>
           ))}
