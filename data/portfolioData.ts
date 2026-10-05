@@ -298,6 +298,7 @@ export const featured = [
     description: "Featured interview discussing my product journey, building Logos Tax Systems, and key insights.",
     date: "2024",
     url: "https://voyagedallas.com/interview/inspiring-conversations-with-abhishek-of-logos-tax-systems/",
+    thumbnail: "/images/featured/voyage-dallas.jpg",
   },
   {
     id: "youtube-1",
@@ -306,6 +307,7 @@ export const featured = [
     description: "Watch my insights and discussions",
     date: "2024",
     url: "https://www.youtube.com/watch?v=ldQr5iUy6mE",
+    thumbnail: "/images/featured/youtube-1.jpg",
   },
   {
     id: "youtube-2",
@@ -314,6 +316,7 @@ export const featured = [
     description: "Watch my insights and discussions",
     date: "2024",
     url: "https://www.youtube.com/watch?v=qiEZCZ8z2Pc",
+    thumbnail: "/images/featured/youtube-2.jpg",
   },
   {
     id: "shorthorn",
@@ -323,6 +326,7 @@ export const featured = [
       "MavMarket encourages student side hustles — Featured as student ambassador and president of the Entrepreneurship Club",
     date: "Apr 2024",
     url: "https://www.theshorthorn.com/news/mavmarket-encourages-student-side-hustles/article_c79dbec8-fdf7-11ee-881d-cfb81f5b41a0.html",
+    thumbnail: "/images/featured/shorthorn.jpg",
   },
   {
     id: "gyandhan-ama",
@@ -331,6 +335,7 @@ export const featured = [
     description: "Instagram Live AMA on studying, internships, and work opportunities in the USA",
     date: "Feb 2025",
     url: "https://discussions.gyandhan.com/t/study-internships-and-work-opportunities-in-the-us/15287",
+    thumbnail: "/images/featured/gyandhan.jpg",
   },
   {
     id: "hackathon",
@@ -340,6 +345,7 @@ export const featured = [
       "Built and pitched an AI product at the Founders Arena WealthTech Accelerator hackathon, placing 2nd among competing teams.",
     date: "2025",
     url: "https://www.thefoundersarena.com",
+    thumbnail: "/images/featured/hackathon.jpg",
   },
   {
     id: "speaking",
@@ -349,6 +355,7 @@ export const featured = [
       "How founders stay distinct while automation accelerates — available for founder events, incubators, and private team sessions.",
     date: "2025",
     url: "mailto:work.abhishekn@gmail.com?subject=Speaking Inquiry",
+    thumbnail: "/images/featured/speaking.jpg",
   },
 ];
 

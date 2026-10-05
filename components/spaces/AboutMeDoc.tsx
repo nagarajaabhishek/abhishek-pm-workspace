@@ -155,12 +155,26 @@ export default function AboutMeDoc() {
               style={{ background: "linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(0 0% 8%) 100%)" }}>
               {/* Card Header/Image Area */}
               <div className="relative h-40 bg-gradient-to-br from-brand/20 to-brand/5 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity" style={{
-                  backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,127,80,0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(100,200,255,0.2), transparent 50%)"
-                }}></div>
-                <div className="relative text-white/30 group-hover:text-brand/50 transition-colors">
-                  <ExternalLink className="w-10 h-10" />
-                </div>
+                {f.thumbnail ? (
+                  <>
+                    <Image
+                      src={f.thumbnail}
+                      alt={f.title}
+                      fill
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+                  </>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity" style={{
+                      backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,127,80,0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(100,200,255,0.2), transparent 50%)"
+                    }}></div>
+                    <div className="relative text-white/30 group-hover:text-brand/50 transition-colors">
+                      <ExternalLink className="w-10 h-10" />
+                    </div>
+                  </>
+                )}
               </div>
 
               {/* Card Content */}
