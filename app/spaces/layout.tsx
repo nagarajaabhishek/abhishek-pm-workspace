@@ -40,7 +40,7 @@ export default function SpacesLayout({ children }: { children: React.ReactNode }
       )}
 
       {/* Sidebar - hidden on mobile by default, visible on md and up */}
-      <div className={`${sidebarOpen ? "block" : "hidden"} md:block md:w-56 md:shrink-0 md:relative fixed inset-0 top-14 w-56 md:top-auto md:inset-auto z-40 md:z-auto overflow-y-auto`}>
+      <div className={`${sidebarOpen ? "block" : "hidden"} md:block md:w-56 md:shrink-0 md:relative fixed left-0 top-14 w-56 h-[calc(100vh-3.5rem)] md:top-auto md:left-auto md:h-auto md:relative z-40 md:z-auto overflow-y-auto`}>
         <SpacesSidebar />
       </div>
 
