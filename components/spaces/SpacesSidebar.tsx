@@ -11,7 +11,7 @@ export default function SpacesSidebar() {
   const activeSlug = pathname.split("/").pop() ?? "about";
 
   return (
-    <aside className="w-56 shrink-0 border-r border-border h-full flex flex-col">
+    <aside className="w-56 shrink-0 border-r border-border h-full flex flex-col bg-background">
       <div className="px-4 py-4 border-b border-border">
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-lg bg-brand/12 border border-brand/15 flex items-center justify-center">
