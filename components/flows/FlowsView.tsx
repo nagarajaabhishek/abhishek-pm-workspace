@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
   ReactFlow,
   Background,
@@ -75,7 +75,7 @@ function buildSkillsFlow(): { nodes: Node[]; edges: Edge[] } {
   return { nodes, edges };
 }
 
-function FlowTab({ tab }: { tab: "career" | "skills" }) {
+function FlowTab({ tab, isMobile }: { tab: "career" | "skills"; isMobile: boolean }) {
   const { nodes: init, edges: initE } = useMemo(
     () => (tab === "career" ? buildCareerFlow() : buildSkillsFlow()),
     [tab]
@@ -92,7 +92,7 @@ function FlowTab({ tab }: { tab: "career" | "skills" }) {
       nodeTypes={nodeTypes}
       fitView
       fitViewOptions={{ padding: 0.25 }}
-      minZoom={0.3}
+      minZoom={isMobile ? 0.2 : 0.3}
       maxZoom={2}
       proOptions={{ hideAttribution: true }}
       className="bg-background"
@@ -105,29 +105,41 @@ function FlowTab({ tab }: { tab: "career" | "skills" }) {
 
 export default function FlowsView() {
   const [activeTab, setActiveTab] = useState<"career" | "skills">("career");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-border shrink-0">
+      <div className={cn(
+        "flex items-center gap-2 border-b border-border shrink-0",
+        isMobile ? "px-2 py-2 gap-1 overflow-x-auto" : "px-4 py-3"
+      )}>
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={cn(
-              "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all",
+              "flex items-center rounded-lg font-medium transition-all whitespace-nowrap flex-shrink-0",
+              isMobile ? "gap-1 px-2 py-1 text-xs" : "gap-1.5 px-3 py-1.5 text-xs",
               activeTab === tab.id
                 ? "bg-brand/12 text-brand border border-brand/15"
                 : "text-white/50 hover:text-white/80 hover:bg-white/5"
             )}
           >
             <span>{tab.emoji}</span>
-            {tab.label}
+            <span className={isMobile ? "hidden sm:inline" : ""}>{tab.label}</span>
           </button>
         ))}
       </div>
 
       <div className="flex-1 min-h-0">
-        <FlowTab key={activeTab} tab={activeTab} />
+        <FlowTab key={activeTab} tab={activeTab} isMobile={isMobile} />
       </div>
     </div>
   );

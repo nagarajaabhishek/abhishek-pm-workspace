@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState, useEffect } from "react";
 import {
   ReactFlow,
   Background,
@@ -77,6 +77,14 @@ export default function ImpactCanvas() {
   const { nodes: initialNodes, edges: initialEdges } = useMemo(buildInitialGraph, []);
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <div className="w-full h-full">
@@ -88,18 +96,20 @@ export default function ImpactCanvas() {
         nodeTypes={nodeTypes}
         fitView
         fitViewOptions={{ padding: 0.3 }}
-        minZoom={0.2}
+        minZoom={0.15}
         maxZoom={2}
         proOptions={{ hideAttribution: true }}
         className="bg-background"
       >
         <Background variant={BackgroundVariant.Dots} gap={20} size={1} color="rgba(255,255,255,0.06)" />
         <Controls className="!bg-card !border-border !shadow-lg [&>button]:!bg-card [&>button]:!border-border [&>button]:!text-white/60 [&>button:hover]:!bg-white/10" />
-        <MiniMap
-          className="!bg-card !border-border"
-          nodeColor={() => "hsl(14 100% 60% / 0.5)"}
-          maskColor="rgba(0,0,0,0.6)"
-        />
+        {!isMobile && (
+          <MiniMap
+            className="!bg-card !border-border"
+            nodeColor={() => "hsl(14 100% 60% / 0.5)"}
+            maskColor="rgba(0,0,0,0.6)"
+          />
+        )}
       </ReactFlow>
     </div>
   );
